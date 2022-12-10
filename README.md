@@ -3,30 +3,30 @@
 
 
 # Idea
-GOAT is a website that allows users to track adventures they have been on and ones they would like to take in the future. It's a mini digital scrapbook of experiences.
+GOAT is a website that allows users to track adventures they have been on and ones they would like to take in the future. It's a mini digital scrapbook of experiences to save and share!
 
 # MVP
 
-- [] Users can create and edit Adventure Cards to add to the database
-- [] Users can browse all Adventure Cards in the database
-- [] Users can track the Adventures they have completed
-- [] Users can create an "Adventures-to-have" list
-- [] Users can create an Account
-- [] Users can log in
+- [ ] Users can create and edit Adventure Cards to add to the database
+- [ ] Users can browse all Adventure Cards in the database
+- [ ] Users can track the Adventures they have completed
+- [ ] Users can create an "Adventures-to-have" list
+- [ ] Users can create an Account
+- [ ] Users can log in
 
 
 # Pages
 
-- [] Home Page
-- [] Login Dashboard
-- [] Adventures I've been on Page
-- [] Adventures to go on list
-- [] Create an adventure Card Page
+- [ ] Home Page
+- [ ] Login Dashboard
+- [ ] Adventures I've been on Page
+- [ ] Adventures to go on list
+- [ ] Create an adventure Card Page
 
 # Database Contains
 
-- []  Users
-- []  Adventures
+- [ ]  Users
+- [ ]  Adventures
 
 
 
