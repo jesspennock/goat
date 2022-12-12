@@ -11,7 +11,6 @@ const HomePage = () => {
             <FeatureBanner/>
             <Searchbar/>
             <CardContainer/>
-            <CardExpanded/>
         </div>
     )
 }

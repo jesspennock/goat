@@ -22,6 +22,8 @@ const Header = () => {
                 <NavLink to="/faq">
                     FAQs
                 </NavLink>
+                <NavLink to="/adventure-quotes">Get Inspired
+                </NavLink>
             </div>
         </nav>
     )

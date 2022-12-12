@@ -5,14 +5,13 @@
     background: url(https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&w=800) no-repeat 50% 20%;
     background-size: cover;
     height: 400px;
-    color: #e6e6e6;
-    text-shadow: 2px 2px 5px #39393A;
+    color: #Fefae0;
+    text-shadow: 2px 2px 5px #283618;
 }
 
 .quote {
     font-size: 70px;
-    margin-top: 90px;
-    color: #e6e6e6;
+    margin-top: 80px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
@@ -21,8 +20,9 @@
     margin-top: px;
     font-size: 20px;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px #39393A;
+    box-shadow: 5px 5px 5px #283618;
     padding: 10px;
+    background-color: #Fefae0;
 }
 /* .banner-photo {
     margin-top: 85px;

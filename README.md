@@ -27,6 +27,7 @@ GOAT is a website that allows users to track adventures they have been on and on
 
 - [ ]  Users
 - [ ]  Adventures
+- [ ]  Categories
 
 
 
