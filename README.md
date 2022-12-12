@@ -19,8 +19,8 @@ GOAT is a website that allows users to track adventures they have been on and on
 
 - [ ] Home Page
 - [ ] Login Dashboard
-- [ ] Adventures I've been on Page
-- [ ] Adventures to go on list
+- [ ] Profile Page
+- [ ] FAQ's
 - [ ] Create an adventure Card Page
 
 # Database Contains
