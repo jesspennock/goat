@@ -1,0 +1,38 @@
+.new-adventure-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    max-width: 1100px;
+    margin: 40px auto;
+    position: relative;
+    background-color: #fefae0;
+    padding: 30px;
+    font-size: 18px;
+}
+.new-adventure-input{
+    padding: 10px;
+}
+.new-adventure-card textarea {
+    width: 50%;
+}
+
+.new-adventure-card p {
+    margin-top: -15px;
+}
+.new-adventure-card input{
+    width: 100%;
+    font-size: 18px;
+    padding-left: 5px;
+}
+.categories-container {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+}
+.public-private{
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    padding: 10px;
+}

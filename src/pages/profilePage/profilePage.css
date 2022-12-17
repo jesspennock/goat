@@ -1,0 +1,18 @@
+.profile-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(../../images/canyonLands.jpeg) no-repeat 50% 40%;
+    background-size: cover;
+    height: 400px;
+    color: #283618;
+    text-shadow: 2px 2px 3px #fefae0;
+
+}
+
+.adventure-elements{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}

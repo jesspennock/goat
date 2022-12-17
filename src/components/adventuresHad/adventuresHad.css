@@ -1,0 +1,15 @@
+.adventures-had-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #fefae0;
+
+}
+.adventures-had {
+ color:#283618
+
+ 
+}

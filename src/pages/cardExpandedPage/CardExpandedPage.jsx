@@ -1,6 +1,6 @@
 import React from "react";
 import blakeRopeSwing from "../../images/blakeRopeSwing.jpg"
-import "./cardExpanded.css"
+import "./cardExpandedPage.css"
 
 const CardExpanded = () =>{
     return(

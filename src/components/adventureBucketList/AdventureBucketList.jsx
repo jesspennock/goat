@@ -1,11 +1,16 @@
 import React from "react";
+import AdventureCard from "../adventureCard/AdventureCard";
+import "./adventureBucketList.css"
 
 const AdventureBucketList = () =>{
     return(
-        <div>
-            <h2>All of the adventures I want to go on</h2>
-            <div>
-                This Container will contain rows of Adventure Cards
+        <div className="adventure-bucket-list">
+            <h2>My adventure bucket list:</h2>
+            <div className="bl-adventure-cards">
+            <AdventureCard/>
+            <AdventureCard/>
+            <AdventureCard/>
+            <AdventureCard/>
             </div>
         </div>
     )

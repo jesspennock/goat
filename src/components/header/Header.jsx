@@ -10,9 +10,15 @@ const Header = () => {
                 <Link to="/">
                     <img src ={MtnGoat} className="goat-logo"/>
                 </Link>
-                <h3>Going On Adventures Tracker</h3>
+                <h3 className="goat-name">Going On Adventures Tracker</h3>
             </div>
             <div className="nav-right">
+                <NavLink to ="/">
+                    Home
+                </NavLink>
+                <NavLink to ="/login">
+                    Sign Up
+                </NavLink>
                 <NavLink to="/login">
                     Login
                 </NavLink>

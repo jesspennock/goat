@@ -13,6 +13,7 @@ const CardContainer = () =>{
             <AdventureCard/>
             <AdventureCard/>
             <AdventureCard/>
+            <AdventureCard/>
         </div>
     )
 };

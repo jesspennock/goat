@@ -5,6 +5,7 @@
     height: 85px;
     background-color: #bc6c25;
     font-size: 20px;
+    /* box-shadow: 5px 5px 5px #283618; */
 }
 
 .nav-right {
@@ -24,9 +25,15 @@
 }
 .goat-logo {
     margin-top: 5px;
-    margin-left: 20px;
+    margin-left: 10px;
     height: 120px;
 }
+
+@media (max-width: 1000px) {
+    .goat-name{
+        display: none;
+    }
+  }
 .navbar a {
     font-size: 20px;
     color:#283618;

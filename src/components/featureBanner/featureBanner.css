@@ -10,11 +10,20 @@
 }
 
 .quote {
-    font-size: 70px;
-    margin-top: 80px;
+    font-size: 55px;
+    margin-top: 50px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 40px;
+    margin-right: 40px;
     
 }
+
+@media (max-width: 1000px) {
+    .quote{
+        font-size: 40px;
+        margin-top: 20px;
+    }
+  }
 
 .banner-btn {
     margin-top: px;
