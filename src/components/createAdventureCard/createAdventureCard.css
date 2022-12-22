@@ -20,7 +20,7 @@
 .new-adventure-card p {
     margin-top: -15px;
 }
-.new-adventure-card input{
+.new-adventure-card input[type=text]{
     width: 100%;
     font-size: 18px;
     padding-left: 5px;

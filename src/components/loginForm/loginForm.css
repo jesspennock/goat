@@ -15,9 +15,9 @@
     flex-direction: column;
 
 }
-.login-form label{
-    padding-top:10px;
-    margin: 5px;
+.form-input{
+    padding: 15px;
+    margin: 10px;
 }
 .login-button {
     font-size: 20px;

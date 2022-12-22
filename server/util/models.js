@@ -19,7 +19,6 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-        userId: DataTypes.INTEGER,
         title: DataTypes.STRING,
         locPin: DataTypes.STRING,
         locDetails: DataTypes.STRING,
@@ -27,9 +26,8 @@ module.exports = {
         costNotes: DataTypes.STRING,
         summary: DataTypes.STRING,
         extras: DataTypes.STRING,
-        images: DataTypes.STRING,
+        imageUrl: DataTypes.STRING,
         link: DataTypes.STRING,
-        categories: DataTypes.ARRAY(DataTypes.INTEGER),
         private: {
             type: DataTypes.BOOLEAN,
             allowNull: false
@@ -43,5 +41,8 @@ module.exports = {
             allowNull: false
         },
         name: DataTypes.STRING
-    })
+    }),
+    // Junction tables
+    Categorization: db.define("categorization", {}),
+    BucketList: db.define("bucketList", {})
 }

@@ -10,7 +10,6 @@ module.exports = {
         if (!headerToken) {
             console.log('ERROR IN auth middleware')
             res.sendStatus(401)
-            //if headerToken does not have authorizaion, send error
         }
 
         let token

@@ -17,18 +17,18 @@ const Header = () => {
                     Home
                 </NavLink>
                 <NavLink to ="/login">
-                    Sign Up
+                    Sign Up/Login
                 </NavLink>
-                <NavLink to="/login">
-                    Login
-                </NavLink>
-                <NavLink to="/logout">
-                    Logout
+                <NavLink to="/profile">
+                    Profile
                 </NavLink>
                 <NavLink to="/faq">
                     FAQs
                 </NavLink>
                 <NavLink to="/adventure-quotes">Get Inspired
+                </NavLink>
+                <NavLink to="/logout">
+                    Logout
                 </NavLink>
             </div>
         </nav>

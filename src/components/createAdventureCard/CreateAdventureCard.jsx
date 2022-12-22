@@ -1,7 +1,8 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect, useState} from "react";
 import "./createAdventureCard.css"
+import axios from "axios"
 
-const CreateAdventureCard = () =>{
+const CreateAdventureCard = () => {
     const adventureTitle = useRef()
     const adventureSummary = useRef()
     const costPerPerson = useRef()
@@ -12,9 +13,54 @@ const CreateAdventureCard = () =>{
     const adventureLink= useRef()
     const adventurePhotoLink = useRef()
 
+    const [categories, setCategories] = useState([])
+    const [userCategories, setUserCategories] = useState([])
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        return(
+            console.log(adventureTitle.current.value)
+        )
+    }
+
+    const getData = () => {
+        axios
+        .get('/api/getCategories')
+        .then((res) => {
+            console.log(res.data)
+            setCategories(res.data.categories)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+  
+    const categoryChangeHandler = (e) => {
+        if(userCategories.includes(e.target.value)){
+            let newState = userCategories.filter((category) => category!==e.target.value)
+            setUserCategories(newState)  
+        } else {
+            setUserCategories([...userCategories, e.target.value])
+        }
+    }
+
+
+    const displayCategories = categories.map((category) => {
+        return(
+            <div className="category-checkbox">
+                <input type="checkbox" name="category" id={`cateogry-`+ category.id} value={category.id} onChange={categoryChangeHandler}/>
+                <label htmlFor={`category-`+ category.id}>{category.name}</label>
+            </div>
+        )
+    })
+
+    useEffect(() => {
+        getData()
+    }, [])
+
     return(
         <div>
-            <form className="new-adventure-card">
+            <form className="new-adventure-card" onSubmit={submitHandler}>
                 <h2>Create your own adventure card to save and share!</h2>
                 <label className="new-adventure-input">Adventure Title:
                 <input type="text" ref={adventureTitle}></input>
@@ -26,32 +72,36 @@ const CreateAdventureCard = () =>{
                 <p>Select all relevant categories <br/>
                 This way, other users can narrow down their search for an adventure by the type of experience.</p>
                 <div className="categories-container">
-                    <input type="radio" id ="exploring" name="exploring"/>
+                    {displayCategories}
+                    {/* <input type="checkbox" id ="exploring" name="exploring"/>
                     <label htmlFor="exploring">Exploring</label>
                     
-                    <input type="radio"id = "hiking" name="hiking"/>
+                    <input type="checkbox"id = "hiking" name="hiking"/>
                     <label htmlFor="hiking">Hiking</label>
 
-                    <input type="radio" id = "biking" name="biking"/>
-                    <label htmlFor="bikinb">Biking</label>
+                    <input type="checkbox" id = "biking" name="biking"/>
+                    <label htmlFor="biking">Biking</label>
 
-                    <input type="radio" id = "water" name="water"/>
+                    <input type="checkbox" id = "water" name="water"/>
                     <label htmlFor="water">Water</label>
                     
-                    <input type="radio" id = "beach" name="beach"/>
+                    <input type="checkbox" id = "beach" name="beach"/>
                     <label htmlFor="beach">Beach</label>
 
-                    <input type="radio" id = "rockhounding" name="rockhounding"/>
+                    <input type="checkbox" id = "rockhounding" name="rockhounding"/>
                     <label htmlFor="rockhounding">Rockhounding</label>
+                    
+                    <input type="checkbox" id = "urban" name="urban"/>
+                    <label htmlFor="urban">Urban</label>
 
-                    <input type="radio" id = "family-friendly" name="family-friendly"/>
+                    <input type="checkbox" id = "family-friendly" name="family-friendly"/>
                     <label htmlFor="family-friendly">Family-Friendly</label>
 
-                    <input type="radio" id = "pet-friendly" name="pet-friendly"/>
+                    <input type="checkbox" id = "pet-friendly" name="pet-friendly"/>
                     <label htmlFor="pet-friendly">Pet-Friendly</label>
 
-                    <input type="radio" id = "free" name="free"/>
-                    <label htmlFor="free">No or low cost</label>
+                    <input type="checkbox" id = "free" name="free"/>
+                    <label htmlFor="free">No or low cost</label> */}
 
                     
                 </div>
@@ -59,7 +109,7 @@ const CreateAdventureCard = () =>{
                 <input type="integer" placeholder="Number value only here" ref= {costPerPerson}></input>
                 </label>
                 <label className="new-adventure-input">Notes about cost:
-                <input type="integer" placeholder="Tell us what adventure goers can expect as for as cost. Entrance fees? Permits? etc." ref={costNotes}></input>
+                <input type="text" placeholder="Tell us what adventure goers can expect as for as cost. Entrance fees? Permits? etc." ref={costNotes}></input>
                 </label>
                 <label className="new-adventure-input">Tips and Supplies:
                 <input type="text" placeholder="What did you need to bring to make this outing a success?" ref= {tipsAndSupplies}></input>
@@ -68,7 +118,7 @@ const CreateAdventureCard = () =>{
                 <input type="text" ref={generalLocation}></input>
                 </label>
                 <label className="new-adventure-input">Google Pin (This helps us make adventures searchable by location!)
-                <input type="text" for={googleMapsPin}></input>
+                <input type="text" ref={googleMapsPin}></input>
                 <h4>Need help finding a Google Pin to your adventure location? <a href="https://support.google.com/maps/answer/144361?hl=en&co=GENIE.Platform%3DDesktop">Click Here</a></h4>
                     
                 </label>
@@ -82,9 +132,9 @@ const CreateAdventureCard = () =>{
 
                 <div className="public-private">
                     <div>Set your adventure card to public to add it to the database and share your adventures. Set it to private to keep track of adventures only you can see on your profile page.</div>
-                    <input type="radio" id ="public" name="public"/>
+                    <input type="checkbox" id ="public" name="public"/>
                     <label htmlFor="public">Public</label>
-                    <input type="radio" id ="private" name="private"/>
+                    <input type="checkbox" id ="private" name="private"/>
                     <label htmlFor="exploring">Private</label>
                 </div>
                     

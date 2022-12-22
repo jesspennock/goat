@@ -9,7 +9,7 @@ import FaqPage from './pages/faqPage/FaqPage';
 import Footer from './components/footer/Footer'
 import AdventureQuotes from './pages/quotesPage/QuotesPage';
 
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import {useContext} from 'react';
 import AuthContext from './store/authContext';
 
@@ -26,16 +26,14 @@ function App() {
       <Header />
       <Routes>
         <Route index element ={<HomePage/>}/>
-        <Route path = "/login" element={<LoginPage/>} />
-        <Route path = "/profile" element={<ProfilePage/>} /> 
-        <Route path = "/create" element={<CreatePage/>} />
+        <Route path = "/login" element={!authCtx.token ? <LoginPage/> : <Navigate to= '/profile'/>} />
+        <Route path = "/profile" element={authCtx.token ? <ProfilePage/> : <Navigate to= '/login'/>} /> 
+        <Route path = "/create" element={authCtx.token ? <CreatePage/> : <Navigate to= '/login'/>} />
         <Route path = "/faq" element={<FaqPage/>} />
         <Route path = "/adventure" element={<CardExpandedPage/>}/>
         <Route path = "/adventure-quotes" element={<AdventureQuotes/>}/>
-
       </Routes> 
       <Footer />
-
     </div>
   );
 }

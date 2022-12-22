@@ -2,7 +2,7 @@
   "name": "going-on-adventures-tracker",
   "version": "0.1.0",
   "main": "server/index.js",
-  "proxy": "http://localhost:4005",
+  "proxy": "http://localhost:4000",
   "nodemonConfig": {
     "ext": "js,sql",
     "ignore": [
@@ -16,9 +16,11 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
