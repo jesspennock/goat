@@ -3,6 +3,7 @@ const cors = require('cors')
 const server = express()
 const {User, Adventure, Category, Categorization, BucketList} = require('./util/models')
 const {getCategories}= require('./controllers/category')
+const { getAllAdventures, getAdventurebyId, getCurrentUserAdventures } = require('./controllers/adventure')
 const {register, login} = require("./controllers/auth")
 
 const {db} = require('./util/database')
@@ -17,6 +18,9 @@ Adventure.belongsToMany(User, {through: BucketList})
 Category.belongsToMany(Adventure, {through: Categorization})
 
 server.get('/api/getCategories', getCategories)
+server.get('/api/getAllAdventures', getAllAdventures)
+server.post('/api/getAdventurebyId', getAdventurebyId)
+server.post('/api/getCurrentUserAdventures', getCurrentUserAdventures)
 server.post('/api/register', register)
 server.post('/api/login', login)
 

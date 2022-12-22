@@ -30,7 +30,7 @@ function App() {
         <Route path = "/profile" element={authCtx.token ? <ProfilePage/> : <Navigate to= '/login'/>} /> 
         <Route path = "/create" element={authCtx.token ? <CreatePage/> : <Navigate to= '/login'/>} />
         <Route path = "/faq" element={<FaqPage/>} />
-        <Route path = "/adventure" element={<CardExpandedPage/>}/>
+        <Route path = "/adventure/:adventureId" element={<CardExpandedPage/>}/>
         <Route path = "/adventure-quotes" element={<AdventureQuotes/>}/>
       </Routes> 
       <Footer />

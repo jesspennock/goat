@@ -22,7 +22,7 @@ const ProfilePage = () => {
         </div>
         <div className="adventure-elements">
             <AdventuresHad/>
-            <AdventureBucketList/>
+            {/* <AdventureBucketList/> */}
         </div>
 
         </div>

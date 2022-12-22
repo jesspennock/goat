@@ -19,9 +19,27 @@ module.exports = {
         }
     },
 
+    getAdventurebyId: async (req, res) => {
+        try {
+            const adventure = await Adventure.findOne({
+                where: {id: req.body.adventureId},
+                include: [{
+                    model: User,
+                    required: true,
+                    attributes: ['username']
+                }]
+            })
+            res.status(200).send(adventure)
+        } catch (error) {
+            console.log('ERROR IN getAdventureById')
+            console.log(error)
+            res.sendStatus(400)
+        }
+    },
+
     getCurrentUserAdventures: async (req, res) => {
         try {
-            const {userId} = req.params
+            const {userId} = req.body
             const adventures = await Adventure.findAll({
                 where: {userId: userId},
                 include: [{
@@ -30,9 +48,9 @@ module.exports = {
                     attributes: [`username`]
                 }]
             })
-            res.status(200).send(posts)
+            res.status(200).send(adventures)
         } catch (error) {
-            console.log('ERROR IN get current user posts')
+            console.log('ERROR IN get current user adventures')
             console.log(error)
             res.sendStatus(400)
         }
