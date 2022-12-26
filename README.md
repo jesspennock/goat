@@ -30,7 +30,12 @@ GOAT is a website that allows users to track adventures they have been on and on
 - [ ]  Categories
 
 
-
+# Future Features
+-[ ] Upload custom photos and photo slider on adventure card
+-[ ] Sort By Location
+-[ ] Sort By Price
+-[ ] Ability to <3 an adventure to track popularity
+-[ ] Move Items from "Bucket List" to Completed Section
 
 
 

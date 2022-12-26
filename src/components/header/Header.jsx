@@ -1,9 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import {NavLink, Link} from 'react-router-dom';
+import AuthContext from "../../store/authContext";
 import MtnGoat from "../../images/mtnGoat.png"
 import "./header.css"
 
 const Header = () => {
+    const authCtx = useContext(AuthContext)
+
+    const logoutAlert = () => {
+        // e.preventDefault();
+        authCtx.logout()
+        alert("Successfully logged out!")
+    }
+
     return (
         <nav className="navbar">
             <div className="nav-left">
@@ -27,7 +36,7 @@ const Header = () => {
                 </NavLink>
                 <NavLink to="/adventure-quotes">Get Inspired
                 </NavLink>
-                <NavLink to="/logout">
+                <NavLink to="/" onClick = {logoutAlert}>
                     Logout
                 </NavLink>
             </div>
