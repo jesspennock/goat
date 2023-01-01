@@ -28,10 +28,7 @@ module.exports = {
         extras: DataTypes.STRING,
         imageUrl: DataTypes.STRING,
         link: DataTypes.STRING,
-        private: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        }
+        private: DataTypes.BOOLEAN
     }),
     Category: db.define("category", {
         id: {

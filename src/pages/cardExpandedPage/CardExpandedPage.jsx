@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./cardExpandedPage.css"
 
 const CardExpanded = () =>{
+    const navigate = useNavigate()
     
     const {adventureId} = useParams()
 
@@ -21,6 +22,19 @@ const CardExpanded = () =>{
             console.log(err)
         })
     }
+
+    const deleteAdventure = () => {
+        axios
+        .delete(`/api/deleteAdventureCard/${adventureId}`)
+        .then((res) => {
+            console.log(res.data)
+            navigate('/profile')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     useEffect(()=> {
         getAdventureDetails()
     }, [])
@@ -30,6 +44,7 @@ const CardExpanded = () =>{
         <div className="card-expanded">
             {adventureDetails && 
             <>
+            {adventureDetails.private && <div onClick={deleteAdventure}>x</div>}
             <img src={adventureDetails.imageUrl} className="ec-photo"/>
             <div className="expanded-content">
                 <h2>{adventureDetails.title}</h2>
@@ -41,6 +56,7 @@ const CardExpanded = () =>{
                 <p>{adventureDetails.extras}</p>
                 <p>Learn More: <a href={adventureDetails.link} target="_blank" rel="noreferrer">{adventureDetails.title}</a></p>
                 <p>Adventure Submitted by: {adventureDetails.user.username}</p>
+                <p>Marked as <strong>{adventureDetails.private ? 'private' : 'public'}</strong></p>
             </div> 
             </>
             } 

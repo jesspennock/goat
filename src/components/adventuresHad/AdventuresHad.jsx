@@ -22,9 +22,21 @@ const AdventuresHad = () =>{
         })
     }
 
+    const deleteAdventure = (id) => {
+        axios
+        .delete(`/api/deleteAdventureCard/${id}`)
+        .then((res) => {
+            console.log(res.data)
+            getAdventuresHad()
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     const displayAdventuresHad = userAdventures.map((adventure) => {
         return(
-            <AdventureCard adventure = {adventure}/>
+            <AdventureCard key={`adventure-${adventure.id}`} adventure={adventure} deleteAdventure={deleteAdventure}/>
         )
     })
     useEffect(() => {
@@ -35,7 +47,7 @@ const AdventuresHad = () =>{
         <div className="adventures-had">
             <h2>Adventures I've Been On:</h2>
             <div className="adventures-had-cards">
-            {displayAdventuresHad}
+                {displayAdventuresHad}
             </div>
         </div>
         )

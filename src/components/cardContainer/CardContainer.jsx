@@ -19,20 +19,20 @@ const CardContainer = () =>{
         })
     }
 
-    const displayAdventureCard = allAdventureCards.map((adventure)=> {
+    const displayAdventureCards = allAdventureCards.map((adventure)=> {
         return(
             <AdventureCard adventure={adventure}/>
         )
     })
 
     useEffect(()=> {  
-    getAllAdventureCards()
+        getAllAdventureCards()
     }, [])
 
     return(
         <div className="card-container">
-            {displayAdventureCard}
-            
+            <div>Adventure Count: {allAdventureCards.length}</div>
+            {displayAdventureCards}
         </div>
     )
 };
