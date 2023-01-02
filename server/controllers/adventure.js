@@ -20,10 +20,10 @@ module.exports = {
         }
     },
 
-    getAdventurebyId: async (req, res) => {
+    getAdventureById: async (req, res) => {
         try {
             const adventure = await Adventure.findOne({
-                where: {id: req.body.adventureId},
+                where: {id: req.params.id},
                 include: [{
                     model: User,
                     required: true,

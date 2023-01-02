@@ -1,83 +1,44 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import "./searchbar.css";
 import axios from "axios";
-import AdventureCard from "../adventureCard/AdventureCard";
 
-const Searchbar = () =>{
-    const searchRef=useRef()
-
+const Searchbar = ({filterFunc}) =>{
     const [categories, setCategories] = useState([])
-    const [searchByCategory, setSearchByCategory] = useState([])
+    const [selectedCategories, setSelectedCategories] = useState([])
+    const [keywordQuery, setKeywordQuery] = useState("")
 
     const getCategories = () => {
         axios
         .get('/api/getCategories')
         .then((res) => {
-            console.log(res.data)
-            setCategories(res.data.categories)
+            // console.log(res.data)
+            setCategories(res.data)
         })
         .catch((err) => {
             console.log(err)
         })
     }
-    const [allAdventureCards, setAllAdventureCards] = useState([])
-    const [searchAdventureCards, setSearchAdventureCards] = useState([])
-
-
-    const getAllAdventureCards= () => {
-        axios
-        .get('/api/getAllAdventures')
-        .then((res) => {
-            console.log(res.data)
-            setAllAdventureCards(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-
-    const displayAdventureCard = allAdventureCards.map((adventure)=> {
-        return(
-            <AdventureCard adventure={adventure}/>
-        )
-    })
-
-    useEffect(()=> {  
-    getAllAdventureCards()
-    }, [])
-    //TODO: COMBINE BOTH OF THESE FUNCTIONS INTO A SINGLE MATCHINGADVENTURES
-    const findMatchingAdventures = () => {
-        const matchingAdventures = allAdventureCards.filter ((adventure) => {
-          let title=adventure.title.toLowerCase()
-          let searchParams=searchAdventureCards.toLowerCase()
-          //TODO: CHECK FOR SEARCHBYCATEGORY ITEMS, CROSS REFERENCE THEM WITH CATEGORIZATION JUNCTION TABLE
-          return title.includes(searchParams)
-        })
-        return matchingAdventures.map((adventure) => {
-          return <AdventureCard adventure={adventure}/>
-        })
-      }
-
-    // const findAdventureByCategory => {
-    //     const matchedAdventures = allAdventureCards.filter ((adventure) => {
-    //         if(adventure.id = searchByCategory.id)
-    //         return adventure
-    //     })
-    // } 
-  
-    const categoryChangeHandler = (e) => {
-        if(searchByCategory.includes(e.target.value)){
-            let newState = searchByCategory.filter((category) => category!==e.target.value)
-            setSearchByCategory(newState)
-            
-        } else {
-            setSearchByCategory([...searchByCategory, e.target.value])
     
+    const categoryChangeHandler = (e) => {
+        if(selectedCategories.includes(e.target.value)){
+            let newState = selectedCategories.filter((category) => category!==e.target.value)
+            setSelectedCategories(newState)
+        } else {
+            setSelectedCategories([...selectedCategories, e.target.value])
         }
     }
-
-
+    const keywordChangeHandler = (e) => {
+        setKeywordQuery(e.target.value)
+    }
+    const searchSubmitHandler = (e) => {
+        e.preventDefault()
+        const searchQueryData = {
+            keywordQuery: keywordQuery,
+            selectedCategories: selectedCategories
+        }
+        filterFunc(searchQueryData)
+    }
     const displayCategories = categories.map((category) => {
         return(
             <div className="category-checkbox" key={`category-${category.id}`}>
@@ -87,22 +48,20 @@ const Searchbar = () =>{
         )
     })
 
-
     useEffect(()=> {
         getCategories()
     }, [])
 
-    useEffect(()=> {
-        console.log(searchByCategory)
-    }, [searchByCategory])
-
     return(
         <div className="search" >
-            <input type="search" className="searchbar" placeholder="Search for an Adventure!" ref={searchRef}/>
-            <h3>Sort By Adventure type:</h3>
-            <div className="categories-container">
-                {displayCategories}
-            </div>
+            <form onSubmit={searchSubmitHandler}>
+                <input type="search" className="searchbar" placeholder="Search by keyword" onChange={keywordChangeHandler}/>
+                <h3>Search By Adventure type:</h3>
+                <div className="categories-container">
+                    {displayCategories}
+                </div>
+                <button type="submit">Search</button>
+            </form>
         </div>
     )
 };

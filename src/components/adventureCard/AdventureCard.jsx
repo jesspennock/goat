@@ -8,7 +8,7 @@ const AdventureCard = ({adventure, deleteAdventure}) => {
     };
     return(
         <div className="adventure-card">
-            {adventure.private && <div onClick={() => deleteAdventure(adventure.id)}>x</div>}
+            {adventure.private && deleteAdventure && <div onClick={() => deleteAdventure(adventure.id)}>x</div>}
             <div className='ac-photo' style={adventureCardStyle}></div>
             <div className="card-content">
                 <h2>{adventure.title}</h2>

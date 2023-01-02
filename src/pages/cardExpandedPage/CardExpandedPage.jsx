@@ -13,7 +13,7 @@ const CardExpanded = () =>{
 
     const getAdventureDetails = () => {
         axios
-        .post('/api/getAdventureById', {adventureId: adventureId})
+        .get(`/api/getAdventureById/${adventureId}`)
         .then((res) => {
             console.log(res.data)
             setAdventureDetails(res.data)

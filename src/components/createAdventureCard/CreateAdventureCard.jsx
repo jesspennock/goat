@@ -57,7 +57,7 @@ const CreateAdventureCard = () => {
         .get('/api/getCategories')
         .then((res) => {
             // console.log(res.data)
-            setCategories(res.data.categories)
+            setCategories(res.data)
             
         })
         .catch((err) => {
