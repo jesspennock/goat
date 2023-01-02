@@ -30,9 +30,7 @@ const Header = () => {
                 <NavLink to="/faq">
                     FAQs
                 </NavLink>
-                <NavLink to="/adventure-quotes">
-                    Get Inspired
-                </NavLink>
+          
                 {authCtx.token &&
                     <>
                         <NavLink to="/profile">

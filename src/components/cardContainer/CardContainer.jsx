@@ -21,7 +21,7 @@ const CardContainer = () =>{
 
     const displayAdventureCards = allAdventureCards.map((adventure)=> {
         return(
-            <AdventureCard adventure={adventure}/>
+            <AdventureCard key={`adventure-${adventure.id}`} adventure={adventure}/>
         )
     })
 
@@ -30,9 +30,11 @@ const CardContainer = () =>{
     }, [])
 
     return(
-        <div className="card-container">
-            <div>Adventure Count: {allAdventureCards.length}</div>
-            {displayAdventureCards}
+        <div>
+            <div className ="adventure-counter">Adventures and Counting: {allAdventureCards.length}</div>
+            <div className="card-container">
+                {displayAdventureCards}
+            </div>
         </div>
     )
 };

@@ -3,7 +3,7 @@ import "./quotesPage.css"
 
 const AdventureQuotes = () => {
     return (
-        <div className="adventure-quotes">
+        <div className="adventure-quotes page">
         <h1>Our Favorite Adventure Quotes</h1>
         <p>"Wherever you go, go with all your heart."
         -Confucius</p>

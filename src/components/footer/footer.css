@@ -10,6 +10,19 @@
     padding: 10px;
 }
 
+.footer a {
+    font-size: 20px;
+    color:#fefae0;
+    padding: 10px;
+    margin: 10px;
+   
+    text-decoration: none;
+    border: 2px solid #fefae0
+}
+.footer a:hover {
+    text-shadow: 0px 0px 1px #283618;
+}
+
 /* .footer-photo {
     width: 150px;
     height: 150px;

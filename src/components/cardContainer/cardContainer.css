@@ -8,3 +8,13 @@
     margin-bottom: 60px;
     
 }
+.adventure-counter {
+
+display: flex;
+justify-content: right;
+align-items: center;
+padding-right: 20px;
+background-color: #606c38;
+height: 50px;
+color: #fefae0;
+}

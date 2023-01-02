@@ -46,7 +46,7 @@ const Searchbar = () =>{
     useEffect(()=> {  
     getAllAdventureCards()
     }, [])
-//TODO: COMBINE BOTH OF THESE FUNCTIONS INTO A SINGLE MATCHINGADVENTURES
+    //TODO: COMBINE BOTH OF THESE FUNCTIONS INTO A SINGLE MATCHINGADVENTURES
     const findMatchingAdventures = () => {
         const matchingAdventures = allAdventureCards.filter ((adventure) => {
           let title=adventure.title.toLowerCase()
@@ -80,7 +80,7 @@ const Searchbar = () =>{
 
     const displayCategories = categories.map((category) => {
         return(
-            <div className="category-checkbox">
+            <div className="category-checkbox" key={`category-${category.id}`}>
                 <input type="checkbox" name="category" id={`cateogry-`+ category.id} value={category.id} onChange={categoryChangeHandler}/>
                 <label htmlFor={`category-`+ category.id}>{category.name}</label>
             </div>
@@ -97,7 +97,7 @@ const Searchbar = () =>{
     }, [searchByCategory])
 
     return(
-        <div >
+        <div className="search" >
             <input type="search" className="searchbar" placeholder="Search for an Adventure!" ref={searchRef}/>
             <h3>Sort By Adventure type:</h3>
             <div className="categories-container">

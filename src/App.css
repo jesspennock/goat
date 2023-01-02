@@ -1,5 +1,10 @@
 .App {
   text-align: center;
 }
+@media (min-width: 1000px){
+  .page {
+    min-height: 800px;
+  }
+}
 
 
