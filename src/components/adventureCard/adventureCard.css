@@ -6,6 +6,9 @@
     border-radius: 5px;
     box-shadow: 5px 5px 5px #283618;
     background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .ac-photo {
@@ -21,7 +24,10 @@
     background-color: #606c38;
     border-radius: 5px;
     padding: 5px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 .card-content button {
     font-size: 20px;
@@ -35,7 +41,22 @@
 .adventure-card p {
     color: #fefae0;
     margin: 10px;
+    flex-grow: 1;
 }
 .adventure-card h2 {
     margin: 10px;
+}
+.adventure-card h4 {
+    margin: 3px 10px;
+}
+.bucket-list-btn {
+    font-size: 20px;
+    box-shadow: 5px 5px 5px #283618;
+    margin-bottom: -25px;
+    padding: 5px;
+    background-color: #606c38;
+    color: #fefae0;
+    position: absolute;
+    top: 20px;
+    right: 25px;
 }

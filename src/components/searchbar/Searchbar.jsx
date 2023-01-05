@@ -53,14 +53,14 @@ const Searchbar = ({filterFunc}) =>{
     }, [])
 
     return(
-        <div className="search" >
+        <div className="search">
             <form onSubmit={searchSubmitHandler}>
                 <input type="search" className="searchbar" placeholder="Search by keyword" onChange={keywordChangeHandler}/>
-                <h3>Search By Adventure type:</h3>
-                <div className="categories-container">
+                <h3>Search By Adventure Type:</h3>
+                <div className="categories-container-searchbar">
                     {displayCategories}
                 </div>
-                <button type="submit">Search</button>
+                <button type="submit" className = "search-submit-btn">Search</button>
             </form>
         </div>
     )

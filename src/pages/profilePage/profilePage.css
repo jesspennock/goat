@@ -16,3 +16,13 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.create-adventure-btn {
+    font-size: 20px;
+    box-shadow: 2px 2px 5px #283618;
+    margin: 10px;
+    padding: 10px;
+    background-color: #dda15e;
+    color: #283618;
+
+}

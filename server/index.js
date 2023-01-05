@@ -3,7 +3,15 @@ const cors = require('cors')
 const server = express()
 const {User, Adventure, Category, Categorization, BucketList} = require('./util/models')
 const {getCategories, getCategorizations}= require('./controllers/category')
-const { getAllAdventures, getAdventureById, getCurrentUserAdventures, addAdventureCard, deleteAdventureCard } = require('./controllers/adventure')
+const { 
+    getAllAdventures, 
+    getAdventureById, 
+    getCurrentUserAdventures, 
+    addAdventureCard, 
+    deleteAdventureCard, 
+    addBucketListItem,
+    getBucketListByUserId 
+} = require('./controllers/adventure')
 const {register, login} = require("./controllers/auth")
 
 const {db} = require('./util/database')
@@ -21,11 +29,14 @@ server.get('/api/getCategories', getCategories)
 server.get('/api/getCategorizations', getCategorizations)
 server.get('/api/getAllAdventures', getAllAdventures)
 server.get('/api/getAdventureById/:id', getAdventureById)
+server.post('/api/getBucketListByUserId', getBucketListByUserId)
 server.post('/api/getCurrentUserAdventures', getCurrentUserAdventures)
 server.post('/api/register', register)
 server.post('/api/login', login)
 server.post('/api/createAdventureCard', addAdventureCard)
+server.post('/api/addBucketListItem', addBucketListItem)
 server.delete('/api/deleteAdventureCard/:id', deleteAdventureCard)
+
 
 // db
 // .sync()

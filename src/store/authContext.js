@@ -54,6 +54,9 @@ export const AuthContextProvider = (props) => {
   const logout = () => {
     setToken(null)
     setUserId(null)
+    localStorage.removeItem('token')
+    localStorage.removeItem('exp')
+    localStorage.removeItem('userId')
   }
 
   const login = (token, exp, userId) => {

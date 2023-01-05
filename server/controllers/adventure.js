@@ -1,4 +1,4 @@
-const {User, Adventure, Categorization} = require("../util/models")
+const {User, Adventure, Categorization, BucketList} = require("../util/models")
 
 module.exports = {
     getAllAdventures: async (req, res) => {
@@ -126,5 +126,40 @@ module.exports = {
             console.log(error)
             res.status(400).send("Adventure Card was not deleted")
         }
+    },
+
+
+    addBucketListItem: async (req, res) => {
+        console.log(req.body)
+        try{
+            const {userId, adventureId} = req.body
+            await BucketList.create({
+                userId: userId,
+                adventureId: adventureId
+            })
+            res.status(200).send("Bucket List item added")
+        }
+        catch(error){
+            console.log(error)
+            res.status(400).send("Bucket List item was not added")
+        }
+    },
+
+    getBucketListByUserId: async (req, res) => {
+        console.log(req.body)
+        try{
+            const{userId} = req.body
+            const bucketList = await BucketList.findAll({
+                where: {userId: userId}
+            })
+            res.status(200).send(bucketList)
+        }
+        catch (error) {
+            console.log(error)
+            res.sendStatus(400)
+        }
     }
+
+
 }
+

@@ -1,14 +1,16 @@
-.bl-adventure-cards {
+.adventure-bucket-list {
+    color:#283618;
+}
+.bucket-list-border {
+    border-top: solid 5px #283618;
+    margin-top: 20px;
+}
+.bucket-list-cards {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border-left: 5px solid #283618;
     flex-wrap: wrap;
     margin-left: 20px;
     padding: 10px;
     background-color: #fefae0;
-
-}
-.adventure-bucket-list {
- color:#283618;
 }

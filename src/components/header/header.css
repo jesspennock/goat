@@ -22,8 +22,7 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 300px;
-            padding-top: 3.5rem;
+            width: 100px;
 
         }
 
@@ -49,11 +48,19 @@
     }
   }
 .navbar a {
-    font-size: 20px;
+    font-size: 20px; 
     color:#283618;
     padding: 10px;
     margin: 10px;
     text-decoration: none;
+}
+@media (max-width: 800px) {
+    .nav-right a {
+        font-size: 14px;
+        margin: 2px;
+        padding: 5px;
+    }
+
 }
 .navbar a:hover {
     text-shadow: 0px 0px 1px #283618;

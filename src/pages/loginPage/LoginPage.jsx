@@ -4,7 +4,6 @@ import LoginForm from "../../components/loginForm/LoginForm";
 const LoginPage = () => {
     return(
         <div className="page">
-            <h2>Login Page</h2>
             <LoginForm/>
         </div>
     )

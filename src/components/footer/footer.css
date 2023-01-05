@@ -15,7 +15,8 @@
     color:#fefae0;
     padding: 10px;
     margin: 10px;
-   
+    background-color: #d99f6d;
+    color: #283618;
     text-decoration: none;
     border: 2px solid #fefae0
 }
@@ -33,6 +34,6 @@
 } */
 .dedication {
     color: #283618;
-    font-size: 25px;
+    font-size: 15px;
     margin-bottom: 20px;
 }

@@ -53,16 +53,12 @@ const LoginForm = () =>{
     return(
        <div>
             <form className="login-form" onSubmit={submitHandler}>
-                <h2>{register ? 'Create a new Account' : 'Sign in to your Account'}</h2>
+                <h2>{register ? 'Create a new Account' : 'Login to your Account'}</h2>
                 <input type="text" required  className="form-input" placeholder="type username"  name="username" value={username} onChange={enterUsername}/>
-
-                <input type="password" required className="form-input" name="password" placeholder="enter password" value={password} onChange={enterPassword}/>
-                    
+                <input type="password" required className="form-input" name="password" placeholder="enter password" value={password} onChange={enterPassword}/> 
                 <button type="submit" className="login-button">SUBMIT</button> 
-                
             </form>
-            <button className="form-button" onClick={changeRegisterState}>{register ? 'Already Have an Account? Click Here to Sign In' : 'Sign Up for an Account'}</button>
-
+            <button className="form-button" onClick={changeRegisterState}>{register ? 'Already Have an Account? Click Here to Login' : 'Sign Up for an Account'}</button>
         </div>
         
     )

@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {NavLink, Link} from 'react-router-dom';
+import {NavLink, Link, useNavigate} from 'react-router-dom';
 import AuthContext from "../../store/authContext";
 import MtnGoat from "../../images/mtnGoat.png"
 import "./header.css"
@@ -7,11 +7,13 @@ import BurgerMenu from "../burgerMenu/BurgerMenu";
 
 const Header = () => {
     const authCtx = useContext(AuthContext)
+    const navigate = useNavigate()
 
-    const logoutAlert = () => {
-        // e.preventDefault();
+    const logoutAlert = (e) => {
+        e.preventDefault()
         authCtx.logout()
         alert("Successfully logged out!")
+        navigate("/")
     }
 
     return (
@@ -22,7 +24,7 @@ const Header = () => {
                 </Link>
                 <h3 className="goat-name">Going On Adventures Tracker</h3>
             </div>
-            <BurgerMenu />
+            {/* <BurgerMenu /> */}
             <div className="nav-right">
                 <NavLink to ="/">
                     Home
@@ -36,9 +38,9 @@ const Header = () => {
                         <NavLink to="/profile">
                             Profile
                         </NavLink>
-                        <NavLink to="/" onClick={logoutAlert}>
-                            Logout
-                        </NavLink>
+                        <Link onClick={logoutAlert}>
+                            Log Out
+                        </Link>
                     </>
                 }
                 {!authCtx.token && <NavLink to ="/login">
